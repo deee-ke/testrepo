@@ -1,0 +1,359 @@
+React - Front-end technology
+----------------------------
+- To create UI
+
+UI - User Interface
+-------------------
+The point where the user - computer (software) interaction / communication takes place
+
+- react makes use of javascript libraries to create UI
+
+-libraries : predifined code - to do particular tasks
+-framework : predifined code - highly restricted
+
+refer library vs framework
+
+features of React
+-----------------
+1) to create UI
+
+2) single page application - web application or website that interact with the user by dynamically rewriting the current webpage with new datas from the web server , instead of the dafault method of loading all the pages seperately. (rather than moving from one html page to another , single page application rewrites the contents inside a single html page) 
+
+3) Declarative application - Does not access directly in the DOM
+
+4) Virtual DOM - The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation. - Virtual DOM is created by React
+              diffing : Process of comparing virtual DOM with real DOM 
+              reconciliation : process of updating real DOM
+
+5) imutable variable - cannot change value - cannot change value
+
+6) Pure function - functions that accepts imutable variable and return an object - result only depends on the variable
+    eg:  react components
+
+7) data sharing - unidirection : parent - child
+
+8) language - JSX : javascript XML - Its a combination of Javascript , HTML and CSS
+          - JSX expressions must be inside one single parent element. 
+          - Empty tag can also be used - empty tag : react fragment
+          js code - jsx - {} 
+
+9) Transpiling - Process of converting JSX into Browser understanding languages ie; HTML , CSS and Javascript 
+        BABEL - converting
+
+How to create a react project
+-----------------------------
+
+1)npx create-react-app projectname
+    npx - node package execute :to execute
+    npm - node package manager :to install
+
+  npm i -g npm   - node globalisation
+  npx create-react-app program_name
+Create a folder in the name of project
+2)cd project_name - change directory
+3)npm start  - to run
+
+Files
+-----
+1) readme.md : holds description of the react application
+2) package.json : holds npm configuration - dependencies - initial libraries
+3) PACKAGE-LOCK.JSON : it holds versions of installed libraries
+4) .gitignore : holds file_names which need not to be pushed into the github
+5) node_modules : its a copy of installed libraries 
+      npm install
+6) public : holds those files which can be accessed throughout the project
+7) index.html : its the only page that the browser loads
+
+8) reportWebVitals : used to makesure performance of react application
+
+component : basic unit of react application
+⚠️⚠️ - should start with capital letter ⚠️⚠️
+      - inorder to use components in other files
+            1)export - export default componentname;
+            2)import - import variable from url
+            3)self closing tag - <componentname/>
+
+different type of components
+
+1) Functional components / stateless components
+------------------------
+eg: App components
+
+Syntax
+
+function component_name (){
+      //js code
+      return(
+            //jsx code
+      )
+}
+export default component_name;
+
+2) Class components / statefull components
+-------------------
+
+      - name should starts with capital letter
+
+      - syntax 
+      Class component_name extends React.Component{
+            //js code
+            render(){
+                  return(
+                        //jsx code
+                        <div></div>
+                  )
+            }
+      }
+      export default component_name;
+
+How data sharing occur in react components
+------------------------------------------
+      - unidirectional - parent - child
+
+      - props - object
+        {key:value}
+
+
+object destructing - 
+child(props)
+child({key,....})
+
+How to style react component using CSS
+--------------------------------------
+1) Inline
+2) External
+
+Inline
+------
+style = "property:value"
+jsx
+style={(property:propertyvalue)}
+
+External
+--------
+- External file - extension filename.CSS
+- import -> import 'url'
+
+3) css node_modules
+
+ extension - filename.module.css
+ - can store into a variable and can style using this variable
+ - can create only in src folder
+ - global access
+
+ React event handling
+ --------------------
+ html onclick ="function()"
+ jsx onClick = {}
+ function without argument
+ onClick = {function name}
+ function with argument
+ onClick = {()=>functionname (arg)}
+
+ how to get value from input box
+ -------------------------------
+ html = input.value
+
+ onChange(callback) - call
+
+ conditional rendering
+ ---------------------
+ Render : loading to browser
+
+ 1)if - truthy - &&
+ 2)if else - ternary - ?:
+
+ React state 
+ -----------
+ - state is an object which stores properties of a react class component.
+ - when the state changes the entire component re-enter
+      - setState() - to change the value of a state
+
+life cycle of react class component
+-----------------------------------
+1)Mounting Phase : component added to DOM
+      - constructor() - initialize state
+      - getDerivedStateFromProps() - modify the state value with props
+      - render() - load to DOM
+      - componentDidMount() - network request
+
+2)Updating phase : editing of component
+      - getDerivedStateFromProps() - modify the state value with props
+      - shouldComponentUpdate() - true or false
+      - render() - load to DOM
+      - getSnapshotBeforeUpdate() - give access to previous state before update
+      - componentDidUpdate() - last method
+
+3)Unmounting phase : removal of component from DOM 
+      - componentWillUnmount() - invoked just before the unmount to cancel of there any network is done etc... inshot it cleanup the component before it is     removed from the DOM
+
+Hooks
+-----
+- Predifined functions 
+      :- To provide state and lifecycles to functional components.
+
+Rules
+-----
+1)import hooks from react library to react functional component
+2)can call gook only at the top section of then functional component
+3)cannot use hooks on conditional basis
+
+Hooks are of different types:
+----------------------------
+1) predefined Hooks :-
+      eg: useState
+      - to create state in functional component.
+      - returns - state and function which can change the state.
+      - can store : strings , object , array , numbers etc...
+      
+
+2) custom Hooks :-
+
+
+
+React form
+----------
+
+Regular expression - to check the pattern of the given string.
+
+Rules to create regular expression
+----------------------------------
+1)Should start and end with forward slash
+2)expression should begin with ^(Raise to)
+3)Expression should end with $ (dollar)
+
+eg:/^[0-9]+$/
+
+match: if the pattern matches with the given string it returns array else returns null.
+
+
+React projects
+--------------
+1)Simple Interest App
+
+	- react component
+	- react hook
+	- react form
+	- User input validation
+	- conditional rendering
+
+2)Netflix
+
+	- component reuse
+	- Api in react
+	- Axios - Javascript library to make http requests : web browser , node.js Environment
+	- Axios is a promise-based HTTP client
+	- Axios can set Timeouts
+
+syntax:-
+
+1)	axios({
+  method: 'get',
+  url: 'http://bit.ly/2mTM3nY',
+  responseType: 'stream'
+})
+  .then(function (response) {
+    response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  });
+
+2)	axios.get(url[, config])
+
+Axios instance
+--------------
+syntax:-
+
+const instance = axios.create({
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: {'X-Custom-Header': 'foobar'}
+});
+
+
+
+- Its an independent object that allows you to define default configuration for http requests. instead of setting
+
+
+useEffect Hook
+--------------
+useEffect allows you to perform side effects in your components.
+
+- fetching data , directly updating the DOM, and timers.
+- useEffect accepts two arguments.second arguments is optional.
+	useEffect(<function>,<dependency>)
+- useEffect runs on every render.
+- dependency to control side effect/useEffect
+
+
+1)no dependency : useEffect runs on every render.
+		useEffect(()=>{
+		//Runs on every render
+		});
+2)empty array as dependency : useEffect call happens in the first Render
+		useEffect(()=>{
+		//Runs only on the first render
+		},[]);
+3)props or state : useEffect call happen in the first Render as well as everyhting time the value of props or state changes
+		useEffect(()=>{
+		//Runs on the first render
+		//And any time any dependecy value changes
+		},[props,state]);
+
+- addEventListner - to monitor the events
+
+
+3)Media/video Player
+
+	1)Navigation 
+		-1) library: react-router-dom 
+			npm i react-router-dom
+		-2) place the entire application inside BrowserRouter tag
+		-3) place all components that needs routing inside a Routes tag
+
+
+	*) Hook : useNavigate - for navigation.
+
+Json server
+-----------
+
+Json server is a lightweight and easy to use node.js tool that simulates a restfull Api using a json file which has the data source
+
+Features
+--------
+1) Easy and quick to set up.
+2) It supports Http methods like (get,post,put,delete) just like a real back end server
+3) It can perform Crud operations (create,Read,Update,Delete) on data to build an interactive application
+4) It have the ability to create custom roots 
+
+
+i)install package.json - npm init -y
+ii)install json-server library - npm i json-server 
+
+
+Data sharing mechanisms
+-----------------------
+1)redux - data sharing between unrelated 
+2)context Api - data sharing between unrelated
+3)State lifting - data sharing between siblings
+
+Drag and Drop mechanism
+-----------------------
+*)Drag and drop mechanism can be achieved using five properties:
+	1)dragable
+	2)onDragStart
+	3)droppable
+	4)onDragOver
+	5)onDrop
+
+1)draggable ; when added has an attribute to an element , makes the target element to become draggable.
+2)onDragStart ; is called immediately the element dragged.usually the content to be dragged about is set at the point.
+3)droppable ; when added has an attribute to element, makes the target element become droppable.
+4)ondragOver ; is added has an event listener to an element where the dragged content will be dropped.i.e, it is used to specify where the content to be dropped.
+5)onDrop ; is called immediately the dragged content is released on the element that contains onDragOver event listener.
+
+
+!! props drilling : it occurs when a parent component generates its states and passes it down has props to its child components that dont consume the props instead they only passes it down to another component that finally consumes it.
+** props which neither created nor consumed is called elongated props.
+
+!! Coupling : dependency of components.
+** 
+
